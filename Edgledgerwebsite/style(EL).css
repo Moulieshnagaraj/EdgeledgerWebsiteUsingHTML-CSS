@@ -1,0 +1,351 @@
+/* "Opensas" font has been taken from google fonts using import method: you can use link method put in the html either */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+/* New learn from this project
+object-fit:cover;
+flex-items > div {} --> directly targetting div's
+psedo elements (::before, ::after)
+*/
+
+/* removing padding, margin/ border-box--> padding does not take up the width */
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* targetting ul to remove bullets */
+ul{
+    list-style: none;
+    /* border: 2px solid blue; */
+}
+
+/* targetting a to remove underline */
+a {
+    color:#333;
+    text-decoration: none;
+}
+
+
+/* h1,h2 are reducing thich or thin in the text, minimizing the line-height */
+h1,h2 {
+    /* border:2px solid khaki; */
+    font-weight: 300;
+    line-height: 1.2;
+}
+ 
+p{
+    margin:10px 0px;
+}
+
+img {
+    width:100%;
+}
+
+/* Navbar */
+.navbar {
+    /* border:2px solid orange; */
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    opacity: 0.8;
+    width:100%;
+    height:70px;
+    position: fixed;
+    top:0px;
+    padding:0 30px;
+    transition: 0.5s;
+}
+
+.navbar.top {
+    background:transparent;
+}
+/* li{
+    border: 1px solid;
+    margin:1px;
+} */
+
+
+.navbar a{
+    color:#fff;
+    padding:10px 20px;
+    margin:0 5px;
+}
+
+.navbar a:hover {
+    border-bottom:#28a745 solid 2px;
+}
+
+.navbar ul {
+    display:flex;
+}
+
+.navbar .logo {
+    font-weight: 400;
+}
+
+/* Header */
+.hero {
+    background: url("../image_resources/image_resources/Edgeledger_img/home/showcase.jpg") no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    color:#fff;
+}
+.hero.blog {
+    height:30vh;
+    background: url(../image_resources/image_resources/Edgeledger_img/home/blog.jpg) no-repeat center center/cover;
+}
+.hero .content {
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.hero .content h1 {
+    font-size: 55px;
+    font-weight: 300;
+    
+}
+.hero .content h1::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid grey;
+}
+.hero .content p {
+    font-size:23px;
+    max-width: 900px;
+    margin:20px 0 30px;
+}
+
+/* creating an overlay */
+
+.hero::before { /*Place the effect before the content, not before the paragraph*/
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color:rgb(0,0,0);
+    opacity: 0.6;
+}
+
+/* Any thing in hero, should have z-index 8 */
+.hero * {
+    z-index: 8;
+}
+
+
+/* Icons */
+.icons {
+    padding:30px;
+}
+ 
+.icons h3{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.icons i{
+    background:#28a745;
+    padding:1rem;
+    color:#fff;
+    border-radius: 100%;
+    margin-bottom: 15px;
+}
+
+/* About:solutions */
+/* Blog just reversing */
+
+.flex-column.flex-reverse .row{  /*reversing the blog images ** ".flex-column.flex-reverse" not ".flex-column .flex-reverse" -->no gap*/
+    display:flex;
+    flex-direction: row-reverse;
+}
+.flex-column .row{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+
+.flex-column .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex:1;
+}
+
+.flex-column img{
+    width:100%;
+    height:100%;
+    object-fit: cover; /* Does the same as background cover*/
+}
+
+.flex-column .column .column-1,
+.flex-column .column .column-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height:100%;
+}
+.flex-column .column .column-2 {
+    padding:30px;
+}
+
+.flex-column .column-2 h3 {
+    font-size:30px;
+    font-weight: 400;
+}
+.flex-column .column-2 h4 {
+    padding:10px 0;
+}
+.flex-column .column-2 p {
+    padding:10px 0;
+}
+
+
+
+/* Cases-images */
+.cases img:hover {
+    opacity:0.6;
+}
+
+/* Request */
+.request h1{
+    font-size: 35px;
+    font-weight: 350;
+    margin:10px 0;
+}
+.callback {
+    width:100%;
+    padding:20px 0;
+}
+
+.callback label {
+    display: block;
+    margin-bottom:5px;
+}
+.callback .form-control {
+    margin-bottom:15px;
+}
+.request .column input {
+    width:100%;
+    padding:4px;
+    height: 40px;
+    border: #f4f4f4 solid 1px;
+}
+
+
+.callback input:focus {
+    outline-color:#28a745;
+}
+.request .btn {
+    padding:12px 0;
+    margin-top:20px;
+}
+
+/* copyright */
+.footer {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height:200px;
+}
+
+.footer .social a:hover {
+    cursor:pointer;
+    color:#28a745;
+}
+.footer .social a{
+    color:#fff;
+}
+
+.footer .social > * {
+    margin-right:15px;
+}
+/* post.html */
+.post {
+    padding:50px 30px;
+}
+.post h2 {
+    font-size: 40px;
+    margin-bottom:20px;
+    padding-bottom:30px;
+    border-bottom:1px solid #ccc;
+}
+.post .meta {
+    padding-bottom:30px;
+}
+
+.post  img {
+
+    width:300px;
+    display:block;
+    border-radius: 50%;
+    margin:0 auto 30px;
+
+}
+/* Mobile responsive */
+
+@media(max-width:768px) {
+    .navbar {
+        flex-direction: column;
+        height:120px;
+        padding: 20px;
+    }
+
+    .navbar a{
+        padding:0 10px;
+    }
+
+    .hero .content h1::after {
+        content: "";
+        display: block;
+        border-bottom: none;
+    }
+
+    .flex-items {
+        flex-direction:column;
+    }
+    .flex-items img {
+        width:70%;
+    }
+
+    .flex-column .column {
+        flex:100%;
+        max-width:100%;
+    }
+
+    .flex-grid .row {
+    display:flex;
+    flex-direction: column;
+    flex:wrap;
+    padding:0 4px;
+   }
+
+    .flex-grid .column {
+        flex:100%;
+        max-width:100%;
+        padding:0 4px;
+        /* overflow: hidden; */
+    }    
+}
+
